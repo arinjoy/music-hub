@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E216F062B101614008BBCF2 /* MusicHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E216F052B101614008BBCF2 /* MusicHubApp.swift */; };
-		0E216F082B101614008BBCF2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E216F072B101614008BBCF2 /* MainView.swift */; };
 		0E216F0A2B101615008BBCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F092B101615008BBCF2 /* Assets.xcassets */; };
 		0E216F0E2B101615008BBCF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F0D2B101615008BBCF2 /* Preview Assets.xcassets */; };
 		0E216F332B102A59008BBCF2 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0E216F322B102A59008BBCF2 /* DataLayer */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		0E216F022B101614008BBCF2 /* MusicHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E216F052B101614008BBCF2 /* MusicHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHubApp.swift; sourceTree = "<group>"; };
-		0E216F072B101614008BBCF2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E216F092B101615008BBCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E216F0B2B101615008BBCF2 /* MusicHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicHub.entitlements; sourceTree = "<group>"; };
 		0E216F0D2B101615008BBCF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				0E216F052B101614008BBCF2 /* MusicHubApp.swift */,
-				0E216F072B101614008BBCF2 /* MainView.swift */,
 				0E216F092B101615008BBCF2 /* Assets.xcassets */,
 				0E216F0B2B101615008BBCF2 /* MusicHub.entitlements */,
 				0E216F0C2B101615008BBCF2 /* Preview Content */,
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E216F082B101614008BBCF2 /* MainView.swift in Sources */,
 				0E216F062B101614008BBCF2 /* MusicHubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

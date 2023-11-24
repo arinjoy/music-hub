@@ -3,12 +3,13 @@
 //
 
 import SwiftUI
+import PresentationLayer
 
 @main
 struct MusicHubApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            RootView()
         }
     }
 }

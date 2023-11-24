@@ -4,8 +4,17 @@
 
 import SwiftUI
 
-struct MainView: View {
-    var body: some View {
+public struct RootView: View {
+
+    // MARK: - Initializer
+
+    public init() {
+
+    }
+
+    // MARK: - UI Body
+
+    public var body: some View {
         TabView {
             roomsView
                 .tabItem {
@@ -45,5 +54,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    RootView()
 }
