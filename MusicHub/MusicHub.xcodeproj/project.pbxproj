@@ -11,18 +11,10 @@
 		0E216F082B101614008BBCF2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E216F072B101614008BBCF2 /* MainView.swift */; };
 		0E216F0A2B101615008BBCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F092B101615008BBCF2 /* Assets.xcassets */; };
 		0E216F0E2B101615008BBCF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F0D2B101615008BBCF2 /* Preview Assets.xcassets */; };
-		0E216F182B101615008BBCF2 /* MusicHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E216F172B101615008BBCF2 /* MusicHubTests.swift */; };
+		0E216F332B102A59008BBCF2 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0E216F322B102A59008BBCF2 /* DataLayer */; };
+		0E216F352B102AA0008BBCF2 /* DataLayer in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F342B102AA0008BBCF2 /* DataLayer */; };
+		0E216F392B102B1D008BBCF2 /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0E216F382B102B1D008BBCF2 /* PresentationLayer */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0E216F142B101615008BBCF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E216EFA2B101614008BBCF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E216F012B101614008BBCF2;
-			remoteInfo = MusicHub;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E216F022B101614008BBCF2 /* MusicHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,8 +23,8 @@
 		0E216F092B101615008BBCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E216F0B2B101615008BBCF2 /* MusicHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicHub.entitlements; sourceTree = "<group>"; };
 		0E216F0D2B101615008BBCF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0E216F132B101615008BBCF2 /* MusicHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E216F172B101615008BBCF2 /* MusicHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHubTests.swift; sourceTree = "<group>"; };
+		0E216F342B102AA0008BBCF2 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
+		0E216F362B102AF3008BBCF2 /* PresentationLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PresentationLayer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,13 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E216F102B101615008BBCF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0E216F392B102B1D008BBCF2 /* PresentationLayer in Frameworks */,
+				0E216F332B102A59008BBCF2 /* DataLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +43,11 @@
 		0E216EF92B101614008BBCF2 = {
 			isa = PBXGroup;
 			children = (
+				0E216F362B102AF3008BBCF2 /* PresentationLayer */,
+				0E216F342B102AA0008BBCF2 /* DataLayer */,
 				0E216F042B101614008BBCF2 /* MusicHub */,
-				0E216F162B101615008BBCF2 /* MusicHubTests */,
 				0E216F032B101614008BBCF2 /* Products */,
+				0E216F372B102B1D008BBCF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				0E216F022B101614008BBCF2 /* MusicHub.app */,
-				0E216F132B101615008BBCF2 /* MusicHubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,12 +79,11 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0E216F162B101615008BBCF2 /* MusicHubTests */ = {
+		0E216F372B102B1D008BBCF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0E216F172B101615008BBCF2 /* MusicHubTests.swift */,
 			);
-			path = MusicHubTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,27 +102,13 @@
 			dependencies = (
 			);
 			name = MusicHub;
+			packageProductDependencies = (
+				0E216F322B102A59008BBCF2 /* DataLayer */,
+				0E216F382B102B1D008BBCF2 /* PresentationLayer */,
+			);
 			productName = MusicHub;
 			productReference = 0E216F022B101614008BBCF2 /* MusicHub.app */;
 			productType = "com.apple.product-type.application";
-		};
-		0E216F122B101615008BBCF2 /* MusicHubTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E216F2A2B101615008BBCF2 /* Build configuration list for PBXNativeTarget "MusicHubTests" */;
-			buildPhases = (
-				0E216F0F2B101615008BBCF2 /* Sources */,
-				0E216F102B101615008BBCF2 /* Frameworks */,
-				0E216F112B101615008BBCF2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E216F152B101615008BBCF2 /* PBXTargetDependency */,
-			);
-			name = MusicHubTests;
-			productName = MusicHubTests;
-			productReference = 0E216F132B101615008BBCF2 /* MusicHubTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -150,10 +123,6 @@
 					0E216F012B101614008BBCF2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
-					0E216F122B101615008BBCF2 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 0E216F012B101614008BBCF2;
-					};
 				};
 			};
 			buildConfigurationList = 0E216EFD2B101614008BBCF2 /* Build configuration list for PBXProject "MusicHub" */;
@@ -165,12 +134,13 @@
 				Base,
 			);
 			mainGroup = 0E216EF92B101614008BBCF2;
+			packageReferences = (
+			);
 			productRefGroup = 0E216F032B101614008BBCF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0E216F012B101614008BBCF2 /* MusicHub */,
-				0E216F122B101615008BBCF2 /* MusicHubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -182,13 +152,7 @@
 			files = (
 				0E216F0E2B101615008BBCF2 /* Preview Assets.xcassets in Resources */,
 				0E216F0A2B101615008BBCF2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E216F112B101615008BBCF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0E216F352B102AA0008BBCF2 /* DataLayer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,23 +168,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E216F0F2B101615008BBCF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E216F182B101615008BBCF2 /* MusicHubTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0E216F152B101615008BBCF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E216F012B101614008BBCF2 /* MusicHub */;
-			targetProxy = 0E216F142B101615008BBCF2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0E216F252B101615008BBCF2 /* Debug */ = {
@@ -413,50 +361,6 @@
 			};
 			name = Release;
 		};
-		0E216F2B2B101615008BBCF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arinappy.MusicHubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MusicHub";
-			};
-			name = Debug;
-		};
-		0E216F2C2B101615008BBCF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arinappy.MusicHubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MusicHub";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -478,16 +382,18 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E216F2A2B101615008BBCF2 /* Build configuration list for PBXNativeTarget "MusicHubTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E216F2B2B101615008BBCF2 /* Debug */,
-				0E216F2C2B101615008BBCF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E216F322B102A59008BBCF2 /* DataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataLayer;
+		};
+		0E216F382B102B1D008BBCF2 /* PresentationLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PresentationLayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E216EFA2B101614008BBCF2 /* Project object */;
 }
