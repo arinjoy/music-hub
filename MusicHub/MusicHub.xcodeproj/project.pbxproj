@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E12900E2B1051C000CCC65A /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0E12900D2B1051C000CCC65A /* DomainLayer */; };
 		0E216F062B101614008BBCF2 /* MusicHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E216F052B101614008BBCF2 /* MusicHubApp.swift */; };
 		0E216F0A2B101615008BBCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F092B101615008BBCF2 /* Assets.xcassets */; };
 		0E216F0E2B101615008BBCF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E216F0D2B101615008BBCF2 /* Preview Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E12900C2B1051A600CCC65A /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
 		0E216F022B101614008BBCF2 /* MusicHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E216F052B101614008BBCF2 /* MusicHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHubApp.swift; sourceTree = "<group>"; };
 		0E216F092B101615008BBCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +34,7 @@
 			files = (
 				0E216F392B102B1D008BBCF2 /* PresentationLayer in Frameworks */,
 				0E216F332B102A59008BBCF2 /* DataLayer in Frameworks */,
+				0E12900E2B1051C000CCC65A /* DomainLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				0E216F362B102AF3008BBCF2 /* PresentationLayer */,
+				0E12900C2B1051A600CCC65A /* DomainLayer */,
 				0E216F342B102AA0008BBCF2 /* DataLayer */,
 				0E216F042B101614008BBCF2 /* MusicHub */,
 				0E216F032B101614008BBCF2 /* Products */,
@@ -102,6 +106,7 @@
 			packageProductDependencies = (
 				0E216F322B102A59008BBCF2 /* DataLayer */,
 				0E216F382B102B1D008BBCF2 /* PresentationLayer */,
+				0E12900D2B1051C000CCC65A /* DomainLayer */,
 			);
 			productName = MusicHub;
 			productReference = 0E216F022B101614008BBCF2 /* MusicHub.app */;
@@ -381,6 +386,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E12900D2B1051C000CCC65A /* DomainLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainLayer;
+		};
 		0E216F322B102A59008BBCF2 /* DataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DataLayer;
