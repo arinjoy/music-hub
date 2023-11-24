@@ -13,6 +13,7 @@ let package = Package(
             targets: ["PresentationLayer"]),
     ],
     dependencies: [
+        .package(path: "../DomainLayer"),
         .package(path: "../DataLayer"),
     ],
     targets: [
@@ -20,7 +21,10 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "PresentationLayer",
-            dependencies: ["DataLayer"]
+            dependencies: [
+                "DomainLayer",
+                "DataLayer",
+            ]
         ),
         .testTarget(
             name: "PresentationLayerTests",
