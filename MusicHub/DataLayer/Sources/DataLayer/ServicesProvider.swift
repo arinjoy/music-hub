@@ -4,6 +4,10 @@
 
 import Foundation
 
+struct ApiConstants {
+    static let baseURL = URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/")!
+}
+
 /// Can provide misc services such as - network data loading, local file data loading, image loading, core-data/caching
 /// For now there is only service of `NetworkServiceType` which does HTTP based data loading
 public class ServicesProvider {
@@ -34,7 +38,6 @@ public class ServicesProvider {
 
     /// The helping provider to fetch locally from stub JSON file
     public static func localStubbedProvider() -> ServicesProvider {
-        // Slightly modified version with more recent dates used for testing
         let localStubbedNetwork = LocalStubbedDataService(withLocalFile: "devices")
         return ServicesProvider(network: localStubbedNetwork)
     }
