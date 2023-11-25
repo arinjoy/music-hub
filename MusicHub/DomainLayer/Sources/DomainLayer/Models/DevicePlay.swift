@@ -40,5 +40,3 @@ public struct MusicInfo {
         self.artistName = artistName
     }
 }
-
-

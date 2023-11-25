@@ -68,7 +68,7 @@ public class PlayListUseCase: PlayListUseCaseType {
             id: matchingDevice.id,
             roomName: matchingDevice.name,
             artwork: .init(smallUrl: smallArtWorkURL, largeUrl: largeArtWorkURL),
-            info: .init(trackName:  music.trackName, artistName: music.artistName)
+            info: .init(trackName: music.trackName, artistName: music.artistName)
         )
     }
 

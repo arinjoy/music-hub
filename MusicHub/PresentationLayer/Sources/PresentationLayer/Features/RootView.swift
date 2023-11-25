@@ -3,10 +3,8 @@
 //
 
 import SwiftUI
-import DomainLayer
 
 public struct RootView: View {
-
 
     // MARK: - Initializer
 
@@ -15,7 +13,7 @@ public struct RootView: View {
     }
 
     // MARK: - UI Body
-    
+
     @MainActor
     public var body: some View {
         TabView {

@@ -7,6 +7,7 @@ import Foundation
 public struct TestHelper {
 
     public static var sampleDevicesList: DeviceListResponse {
+        // swiftlint:disable:next force_try
         return try! JSONDecoder().decode(
             DeviceListResponse.self,
             from: TestHelper.jsonData(forResource: "sample_devices_success")
@@ -18,6 +19,7 @@ public struct TestHelper {
                                             withExtension: "json",
                                             subdirectory: "JSON/Mocks")
 
+        // swiftlint:disable:next force_try force_unwrapping
         return try! Data(contentsOf: fileURLPath!)
     }
 }

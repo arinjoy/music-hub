@@ -23,6 +23,5 @@ class RoomsViewModel: ObservableObject {
         } catch {
             // TODO: handle later
         }
-
     }
 }

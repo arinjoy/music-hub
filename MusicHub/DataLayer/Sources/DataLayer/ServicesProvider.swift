@@ -5,6 +5,8 @@
 import Foundation
 
 struct ApiConstants {
+
+    // swiftlint:disable:next force_unwrapping
     static let baseURL = URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/")!
 }
 

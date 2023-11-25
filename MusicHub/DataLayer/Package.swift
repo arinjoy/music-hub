@@ -12,18 +12,26 @@ let package = Package(
             name: "DataLayer",
             targets: ["DataLayer"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/lukepistrol/SwiftLintPlugin", from: "0.2.2"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "DataLayer",
             dependencies: [],
-            resources: [.copy("JSON")]
+            resources: [.copy("JSON")],
+            plugins: [
+                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
+            ]
         ),
         .testTarget(
             name: "DataLayerTests",
-            dependencies: ["DataLayer"]
+            dependencies: ["DataLayer"],
+            plugins: [
+                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
+            ]
         ),
     ]
 )
