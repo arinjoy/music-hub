@@ -14,8 +14,13 @@ struct RoomsView: View {
     }
 
     var body: some View {
-        List(viewModel.rooms) { room in
-            Text(room.roomName)
+        VStack(
+            alignment: .leading,
+            spacing: 10
+        ) {
+            ForEach(viewModel.devicePlayItems) { item in
+                RoomCellView(viewModel: item)
+            }
         }
         .onAppear {
             Task {

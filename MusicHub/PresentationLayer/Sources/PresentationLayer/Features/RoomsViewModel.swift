@@ -7,19 +7,28 @@ import DomainLayer
 
 class RoomsViewModel: ObservableObject {
 
-    // output
-    @Published private(set) var rooms: [DevicePlay] = []
+    // MARK: - Outputs
+
+    @Published private(set) var devicePlayItems: [DevicePlayViewModel] = []
+
+    // MARK: - Dependency
 
     private let useCase: PlayListUseCaseType
+
+    // MARK: - Initializer
 
     init(useCase: PlayListUseCase = PlayListUseCase()) {
         self.useCase = useCase
     }
 
+    // MARK: - API methods
+
     @MainActor
     func fetchLatestRoomsList() async {
         do {
-            rooms = try await useCase.fetchCurrentPlayList()
+            devicePlayItems = try await useCase
+                .fetchCurrentPlayList()
+                .map { .init(model: $0) }
         } catch {
             // TODO: handle later
         }
