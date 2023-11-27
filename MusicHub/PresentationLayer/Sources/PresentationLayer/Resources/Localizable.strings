@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Arinjoy Biswas on 27/11/2023.
+  
+*/
+
+"Tabbar.rooms.name" = "Rooms";
+"Tabbar.now-playing.name" = "Now Playing";
+"Tabbar.settings.name" = "Settings";
+
