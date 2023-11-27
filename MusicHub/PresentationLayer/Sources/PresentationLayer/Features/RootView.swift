@@ -17,7 +17,7 @@ public struct RootView: View {
     @MainActor
     public var body: some View {
         TabView {
-            RoomsView()
+            RoomsListView()
                 .tabItem {
                     Image(.tabbarIconBlockRooms)
                     Text("Rooms")

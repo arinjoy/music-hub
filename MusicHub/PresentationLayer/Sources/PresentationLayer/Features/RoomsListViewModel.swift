@@ -5,7 +5,7 @@
 import Foundation
 import DomainLayer
 
-class RoomsViewModel: ObservableObject {
+class RoomsListViewModel: ObservableObject {
 
     // MARK: - Outputs
 
@@ -17,7 +17,7 @@ class RoomsViewModel: ObservableObject {
 
     // MARK: - Initializer
 
-    init(useCase: PlayListUseCase = PlayListUseCase()) {
+    init(useCase: PlayListUseCaseType = PlayListUseCase()) {
         self.useCase = useCase
     }
 

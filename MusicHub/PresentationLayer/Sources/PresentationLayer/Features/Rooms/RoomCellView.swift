@@ -6,27 +6,26 @@ import SwiftUI
 
 struct RoomCellView: View {
 
-    @State private var isSelected: Bool = false
+    @Binding private var isSelected: Bool
 
     @ObservedObject
     private var viewModel: DevicePlayViewModel
 
-    init(viewModel: DevicePlayViewModel) {
+    init(viewModel: DevicePlayViewModel, isSelected: Binding<Bool>) {
         self.viewModel = viewModel
+        self._isSelected = isSelected
     }
 
     var body: some View {
         ZStack {
             Image(isSelected ? .cellBackgroundSelected : .cellBackground)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
 
             HStack(alignment: .center) {
 
                 Spacer().frame(width: 30)
 
                 artworkThumbnail
-                    .onTapGesture {
-                        isSelected.toggle()
-                    }
 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(viewModel.roomName)
@@ -43,6 +42,10 @@ struct RoomCellView: View {
                 Spacer()
             }
         }
+        .onChange(of: isSelected) { _ in
+            // TODO: remove debugging code
+            print("\(viewModel.roomName) --> \(isSelected)")
+        }
     }
 
     @ViewBuilder
@@ -53,7 +56,8 @@ struct RoomCellView: View {
                 .scaledToFill()
         } placeholder: {
             Color.gray
-        }.frame(maxWidth: 40, maxHeight: 40)
+        }
+            .frame(maxWidth: 40, maxHeight: 40)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
@@ -83,7 +87,8 @@ struct RoomCellView: View {
                     ),
                     info: .init(trackName: "Summer of 69", artistName: "Bryan Adams")
                 )
-            )
+            ),
+            isSelected: .constant(true)
         )
 
         RoomCellView(
@@ -98,7 +103,7 @@ struct RoomCellView: View {
                     ),
                     info: .init(trackName: "My heart goes on", artistName: "Sia")
                 )
-            )
+            ),isSelected: .constant(false)
         )
     }
 }
