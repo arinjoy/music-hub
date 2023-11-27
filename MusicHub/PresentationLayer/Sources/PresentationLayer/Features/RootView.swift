@@ -23,7 +23,21 @@ public struct RootView: View {
                     Text("Rooms")
                 }
 
-            NowPlayingView()
+            NowPlayingView(
+                viewModel: .init(
+                    isPlaying: true,
+                    model: .init(
+                        id: 1111,
+                        roomName: "Bedroom",
+                        artwork: .init(
+                            smallUrl: URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+small.jpg")!,
+                            largeUrl: URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+large.jpg")!
+                        ),
+                        info: .init(trackName: "Summer of 69", artistName: "Bryan Adams")
+                    )
+                ),
+                isPlaying: .constant(true)
+            )
                 .tabItem {
                     Image(.tabbarIconNowPlaying)
                     Text("Now Playing")
