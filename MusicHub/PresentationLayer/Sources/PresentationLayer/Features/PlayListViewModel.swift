@@ -5,11 +5,13 @@
 import Foundation
 import DomainLayer
 
-class RoomsListViewModel: ObservableObject {
+class PlayListViewModel: ObservableObject {
 
     // MARK: - Outputs
 
-    @Published private(set) var devicePlayItems: [DevicePlayViewModel] = []
+    @Published private(set) var playItems: [DevicePlayViewModel] = []
+
+    @Published var currentlyPlayingItem: DevicePlayViewModel?
 
     // MARK: - Dependency
 
@@ -26,7 +28,7 @@ class RoomsListViewModel: ObservableObject {
     @MainActor
     func fetchLatestRoomsList() async {
         do {
-            devicePlayItems = try await useCase
+            playItems = try await useCase
                 .fetchCurrentPlayList()
                 .map { .init(model: $0) }
         } catch {

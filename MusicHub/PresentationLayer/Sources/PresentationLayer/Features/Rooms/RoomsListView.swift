@@ -6,17 +6,17 @@ import SwiftUI
 
 struct RoomsListView: View {
 
-    @ObservedObject private var viewModel: RoomsListViewModel
+    @EnvironmentObject private var viewModel: PlayListViewModel
 
     @State private var selectedDevice: DevicePlayViewModel.ID?
 
-    init(viewModel: RoomsListViewModel = .init()) {
-        self.viewModel = viewModel
-    }
+//    init(viewModel: RoomsListViewModel = .init()) {
+//        self.viewModel = viewModel
+//    }
 
     var body: some View {
         List(selection: $selectedDevice) {
-            ForEach(viewModel.devicePlayItems) { item in
+            ForEach(viewModel.playItems) { item in
                 RoomCellView(
                     viewModel: item,
                     isSelected: Binding(
@@ -35,7 +35,9 @@ struct RoomsListView: View {
             }
         }
         .onChange(of: selectedDevice) { _ in
-            print(selectedDevice ?? "")
+            viewModel.currentlyPlayingItem = viewModel
+                .playItems
+                .first(where: { $0.id == selectedDevice })
         }
     }
 }

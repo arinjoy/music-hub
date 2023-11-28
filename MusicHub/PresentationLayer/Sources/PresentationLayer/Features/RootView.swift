@@ -6,10 +6,13 @@ import SwiftUI
 
 public struct RootView: View {
 
+    @ObservedObject
+    private var viewModel: PlayListViewModel
+
     // MARK: - Initializer
 
     public init() {
-
+        self.viewModel = PlayListViewModel()
     }
 
     // MARK: - UI Body
@@ -23,21 +26,7 @@ public struct RootView: View {
                     Text("Rooms")
                 }
 
-            NowPlayingView(
-                viewModel: .init(
-                    isPlaying: true,
-                    model: .init(
-                        id: 1111,
-                        roomName: "Bedroom",
-                        artwork: .init(
-                            smallUrl: URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+small.jpg")!,
-                            largeUrl: URL(string: "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+large.jpg")!
-                        ),
-                        info: .init(trackName: "Summer of 69", artistName: "Bryan Adams")
-                    )
-                ),
-                isPlaying: .constant(true)
-            )
+            nowPlayingView
                 .tabItem {
                     Image(.tabbarIconNowPlaying)
                     Text("Now Playing")
@@ -49,7 +38,18 @@ public struct RootView: View {
                     Text("Settings")
                 }
         }
-        .tint(.teal)
+        .environmentObject(viewModel)
+    }
+
+    // MARK: - Private Views
+
+    @ViewBuilder
+    private var nowPlayingView: some View {
+        if let devicePlayViewModel = viewModel.currentlyPlayingItem {
+            NowPlayingView(viewModel: devicePlayViewModel, isPlaying: .constant(true))
+        } else {
+            EmptyView()
+        }
     }
 }
 
