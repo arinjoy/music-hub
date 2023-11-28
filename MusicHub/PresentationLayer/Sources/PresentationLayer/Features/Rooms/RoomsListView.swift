@@ -8,23 +8,18 @@ struct RoomsListView: View {
 
     @EnvironmentObject private var viewModel: PlayListViewModel
 
-    @State private var selectedDevice: DevicePlayViewModel.ID?
-
-//    init(viewModel: RoomsListViewModel = .init()) {
-//        self.viewModel = viewModel
-//    }
+    @State private var selectedItem: DevicePlayViewModel.ID?
 
     var body: some View {
-        List(selection: $selectedDevice) {
+        List(selection: $selectedItem) {
             ForEach(viewModel.playItems) { item in
                 RoomCellView(
                     viewModel: item,
                     isSelected: Binding(
-                        get: { item.id == selectedDevice },
-                        set: { _ in  }
+                        get: { item.id == selectedItem },
+                        set: { _ in }
                     )
                 )
-
             }
             .listRowSeparator(.hidden)
             .listRowBackground(Color.clear)
@@ -34,10 +29,10 @@ struct RoomsListView: View {
                 await viewModel.fetchLatestRoomsList()
             }
         }
-        .onChange(of: selectedDevice) { _ in
+        .onChange(of: selectedItem) { _ in
             viewModel.currentlyPlayingItem = viewModel
                 .playItems
-                .first(where: { $0.id == selectedDevice })
+                .first(where: { $0.id == selectedItem })
         }
     }
 }

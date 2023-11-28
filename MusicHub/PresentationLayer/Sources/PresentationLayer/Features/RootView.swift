@@ -9,6 +9,8 @@ public struct RootView: View {
     @ObservedObject
     private var viewModel: PlayListViewModel
 
+    @State var currentlySelectedItemPlaying: Bool =  false
+
     // MARK: - Initializer
 
     public init() {
@@ -46,7 +48,13 @@ public struct RootView: View {
     @ViewBuilder
     private var nowPlayingView: some View {
         if let devicePlayViewModel = viewModel.currentlyPlayingItem {
-            NowPlayingView(viewModel: devicePlayViewModel, isPlaying: .constant(true))
+            NowPlayingView(
+                viewModel: devicePlayViewModel,
+                isPlaying: $currentlySelectedItemPlaying
+            )
+            .onChange(of: currentlySelectedItemPlaying) { value in
+                viewModel.currentlyPlayingItem?.isPlaying = value
+            }
         } else {
             EmptyView()
         }

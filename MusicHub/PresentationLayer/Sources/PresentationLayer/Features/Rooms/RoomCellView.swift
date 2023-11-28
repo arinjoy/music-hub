@@ -8,10 +8,15 @@ struct RoomCellView: View {
 
     @Binding private var isSelected: Bool
 
+    @State private var isCurrentlyPlaying: Bool = false
+
     @ObservedObject
     private var viewModel: DevicePlayViewModel
 
-    init(viewModel: DevicePlayViewModel, isSelected: Binding<Bool>) {
+    init(
+        viewModel: DevicePlayViewModel,
+        isSelected: Binding<Bool>
+    ) {
         self.viewModel = viewModel
         self._isSelected = isSelected
     }
@@ -42,9 +47,10 @@ struct RoomCellView: View {
                 Spacer()
             }
         }
-        .onChange(of: isSelected) { _ in
+        .onChange(of: viewModel.isPlaying) { value in
             // TODO: remove debugging code
-            print("\(viewModel.roomName) --> \(isSelected)")
+            // This is stange that this is firing but View is not updating
+            print("\(viewModel.roomName) --> \(value)")
         }
     }
 
@@ -77,7 +83,6 @@ struct RoomCellView: View {
     VStack {
         RoomCellView(
             viewModel: .init(
-                isPlaying: true,
                 model: .init(
                     id: 1111,
                     roomName: "Bedroom",
@@ -93,7 +98,6 @@ struct RoomCellView: View {
 
         RoomCellView(
             viewModel: .init(
-                isPlaying: false,
                 model: .init(
                     id: 2222,
                     roomName: "Lounge Room",
@@ -103,7 +107,8 @@ struct RoomCellView: View {
                     ),
                     info: .init(trackName: "My heart goes on", artistName: "Sia")
                 )
-            ),isSelected: .constant(false)
+            ),
+            isSelected: .constant(false)
         )
     }
 }

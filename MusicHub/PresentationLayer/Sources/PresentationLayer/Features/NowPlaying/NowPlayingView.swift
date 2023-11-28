@@ -113,13 +113,17 @@ private extension NowPlayingView {
 
     @ViewBuilder
     var playAndPauseButton: some View {
-        Image(
-            viewModel.isPlaying ?
-                .nowPlayingControlsPause : .nowPlayingControlsPlay
-        )
-            .resizable()
-            .scaledToFit()
-            .frame(width: 50, height: 50)
+        Button(action: {
+            isPlaying.toggle()
+        }, label: {
+            Image(
+                viewModel.isPlaying ?
+                    .nowPlayingControlsPause : .nowPlayingControlsPlay
+            )
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+        })
     }
 
     @ViewBuilder
@@ -179,7 +183,6 @@ private extension NowPlayingView {
 #Preview {
     NowPlayingView(
         viewModel: .init(
-            isPlaying: true,
             model: .init(
                 id: 1111,
                 roomName: "Bedroom",
