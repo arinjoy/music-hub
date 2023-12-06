@@ -9,6 +9,6 @@ public protocol PlayListUseCaseType: AnyObject {
 
     /// Fetches the current list devices which are playing various music.
     /// - Returns: The list of music/play objects per device
-    func fetchCurrentPlayList() async throws -> [DevicePlay]
+    func fetchCurrentPlayList(isMockData: Bool) async throws -> [DevicePlay]
 
 }

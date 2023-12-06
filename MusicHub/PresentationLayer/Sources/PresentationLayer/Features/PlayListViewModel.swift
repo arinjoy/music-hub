@@ -9,6 +9,10 @@ class PlayListViewModel: ObservableObject {
 
     // MARK: - Outputs
 
+    // A property that play is key differentiator whether demo/mock data or in real-mode
+    // is being used currently in the app
+    @Published var isMockDataMode: Bool = false
+
     @Published private(set) var playItems: [DevicePlayViewModel] = []
 
     @Published var currentlyPlayingItem: DevicePlayViewModel?
@@ -29,7 +33,7 @@ class PlayListViewModel: ObservableObject {
     func fetchLatestRoomsList() async {
         do {
             playItems = try await useCase
-                .fetchCurrentPlayList()
+                .fetchCurrentPlayList(isMockData: isMockDataMode)
                 .map { .init(model: $0) }
         } catch {
             // TODO: handle later

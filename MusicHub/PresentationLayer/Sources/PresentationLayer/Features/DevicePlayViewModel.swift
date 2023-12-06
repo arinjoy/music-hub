@@ -6,7 +6,7 @@ import Foundation
 import DomainLayer
 
 class DevicePlayViewModel: ObservableObject, Identifiable, Equatable {
-    
+
     static func == (lhs: DevicePlayViewModel, rhs: DevicePlayViewModel) -> Bool {
         lhs.id == rhs.id &&
         lhs.isPlaying == rhs.isPlaying

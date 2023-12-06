@@ -10,7 +10,7 @@ public class PlayListUseCase: PlayListUseCaseType {
 
     // MARK: - Dependency
 
-    private let networkService: NetworkServiceType
+    private var networkService: NetworkServiceType
 
     // MARK: - Initializer
 
@@ -19,15 +19,23 @@ public class PlayListUseCase: PlayListUseCaseType {
     /// not to hit the real network and get locally stubbed mocked JSON :)
     public init(
         networkService: NetworkServiceType = ServicesProvider.defaultProvider().network
+
     ) {
         self.networkService = networkService
     }
 
-    // MARK: - NextRacesInteracting
+    // MARK: - PlayListUseCaseType
 
-    public func fetchCurrentPlayList() async throws -> [DevicePlay] {
+    public func fetchCurrentPlayList(isMockData: Bool) async throws -> [DevicePlay] {
 
-        try await networkService.load(
+        // Override network Service instance to point local-stubbed fake/mock service
+        if isMockData {
+            networkService = ServicesProvider.localStubbedProvider().network
+        } else {
+            networkService = ServicesProvider.defaultProvider().network
+        }
+
+        return try await networkService.load(
             Resource<DeviceListResponse>.currentDevices()
         )
         .flatMapLatest { [unowned self] devicesResponse in
@@ -41,6 +49,7 @@ public class PlayListUseCase: PlayListUseCaseType {
                 .compactMap { $0 }
             }
         }
+        .delay(for: 1.0, scheduler: RunLoop.main)
         .eraseToAnyPublisher()
         .async()
     }

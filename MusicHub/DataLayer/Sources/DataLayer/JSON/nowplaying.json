@@ -3,25 +3,19 @@
         "Device ID": 1,
         "Artwork Small": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+small.jpg",
         "Artwork Large": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Appetite+For+Destruction+-+large.jpg",
-        "Track Name": "Welcome To The Jungle",
-        "Artist Name": "Guns N' Roses"
+        "Track Name": "Summer of 69",
+        "Artist Name": "Bryan Adams"
     }, {
         "Device ID": 2,
         "Artwork Small": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Brothers+In+Arms+-+small.jpg",
         "Artwork Large": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Brothers+In+Arms+-+large.jpg",
-        "Track Name": "Down To The Waterline",
-        "Artist Name": "Dire Straights"
+        "Track Name": "Fast Car",
+        "Artist Name": "Jonash Blue"
     }, {
         "Device ID": 3,
         "Artwork Small": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Elephant+-+small.jpg",
         "Artwork Large": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Elephant+-+large.jpg",
-        "Track Name": "Seven Nation Army",
-        "Artist Name": "The White Stripes"
-    }, {
-        "Device ID": 4,
-        "Artwork Small": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Hotel+California+-+small.jpg",
-        "Artwork Large": "https://skyegloup-eula.s3.amazonaws.com/heos_app/code_test/Hotel+California+-+large.jpg",
-        "Track Name": "Hotel California",
-        "Artist Name": "The Eagles"
+        "Track Name": "I want to hold yoru hand",
+        "Artist Name": "Beatles"
     }]
 }

@@ -114,7 +114,7 @@ private extension NowPlayingView {
     @ViewBuilder
     var playAndPauseButton: some View {
         Button(action: {
-            isPlaying.toggle()
+            viewModel.isPlaying.toggle()
         }, label: {
             Image(
                 viewModel.isPlaying ?

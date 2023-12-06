@@ -40,7 +40,7 @@ public class ServicesProvider {
 
     /// The helping provider to fetch locally from stub JSON file
     public static func localStubbedProvider() -> ServicesProvider {
-        let localStubbedNetwork = LocalStubbedDataService(withLocalFile: "devices")
+        let localStubbedNetwork = LocalStubbedDataService()
         return ServicesProvider(network: localStubbedNetwork)
     }
 

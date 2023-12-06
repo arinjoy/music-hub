@@ -1,15 +1,12 @@
 {
 	"Devices": [{
 		"ID": 1,
-		"Name": "Bedroom"
+		"Name": "Games Room"
 	}, {
 		"ID": 2,
-		"Name": "Lounge"
+		"Name": "Master Bedroom"
 	}, {
 		"ID": 3,
-		"Name": "Kitchen"
-	}, {
-		"ID": 4,
-		"Name": "Patio"
+		"Name": "Swimming Pool"
 	}]
 }

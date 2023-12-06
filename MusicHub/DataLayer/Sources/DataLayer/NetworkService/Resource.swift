@@ -11,20 +11,14 @@ public struct Resource<T: Decodable> {
     let url: URL
     let parameters: [(String, CustomStringConvertible)]
 
-    /// An indicator if we are loading the the data locally from a `Stubbed JSON` file
-    /// Helpful for debugging, building / unit testing
-    let isLocalStub: Bool
-
     // MARK: - Initializer
 
     public init(
         url: URL,
-        parameters: [(String, CustomStringConvertible)] = [],
-        isLocalStub: Bool = false
+        parameters: [(String, CustomStringConvertible)] = []
     ) {
         self.url = url
         self.parameters = parameters
-        self.isLocalStub = isLocalStub
     }
 
     // MARK: - Helper
