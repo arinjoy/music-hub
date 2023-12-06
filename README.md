@@ -54,8 +54,6 @@ The package dependencies (import logic from one to another) are shown below:
       A[Presentation Layer] --> B[Domain Layer];
       B-->C[Data Layer];
       A-.->C;
-      B-->D;
-      C-->D;
 ```
 
  
