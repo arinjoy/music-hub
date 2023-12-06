@@ -1,7 +1,3 @@
-//
-//  Created by Arinjoy Biswas on 24/11/2023.
-//
-
 import SwiftUI
 
 public struct RootView: View {
@@ -43,7 +39,6 @@ public struct RootView: View {
             }
             .environmentObject(viewModel)
             .navigationTitle(viewModel.isMockDataMode ? "Demo Mode" : "")
-
         }
     }
 
@@ -63,38 +58,6 @@ public struct RootView: View {
             )
         } else {
             EmptyView()
-        }
-    }
-
-    @ToolbarContentBuilder
-    private var toolBarContent: some ToolbarContent {
-
-        ToolbarItem(placement: .topBarLeading) {
-            EmptyView()
-        }
-
-        ToolbarItem(placement: .principal) {
-            if viewModel.isMockDataMode {
-                HStack(spacing: 10) {
-                    Text("DEMO mode") // TODO: move into viewModel
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                        .multilineTextAlignment(.leading)
-
-                    Image(systemName: "cloud.snow") // TODO: move into viewModel
-                        .resizable()
-                        .scaledToFit()
-                        .font(.system(size: 20, weight: .medium, design: .rounded))
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.red)
-                        .accessibilityHidden(true)
-                }
-                .accessibilityElement(children: .combine)
-                .accessibilityAddTraits(.isHeader)
-            } else {
-                Text("Hee")
-            }
         }
     }
 }

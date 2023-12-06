@@ -1,7 +1,3 @@
-//
-//  Created by Arinjoy Biswas on 24/11/2023.
-//
-
 import SwiftUI
 
 // swiftlint:disable all
@@ -55,7 +51,7 @@ private extension SettingsView {
     @ViewBuilder
     var demoDataSelectorSection: some View {
         GroupBox(
-            label: SettingsLabelView(text: "Mock Data", imageName: "cloud.snow")
+            label: SettingsLabelView(text: "Demo Mode", imageName: "cloud.snow")
         ) {
 
             Divider()
@@ -71,7 +67,7 @@ private extension SettingsView {
                 .multilineTextAlignment(.leading)
 
             Toggle(isOn: $isMockDataMode) {
-                Text("Demo Mode")
+                Text("Mock Data")
             }
             .padding()
             .background(
@@ -110,7 +106,7 @@ private extension SettingsView {
                 .padding(.vertical, 4)
 
             Text(
-                "If you wish, you can update the theme to be dark mode. Also you can update larger accessibility font sizes from system settings and see how the app adapts to it."
+                "If you wish, you can update the theme to be dark mode."
             )
                 .padding(.vertical, 8)
                 .frame(minHeight: 60)

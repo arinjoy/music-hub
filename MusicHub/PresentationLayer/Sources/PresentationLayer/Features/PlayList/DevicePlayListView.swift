@@ -2,11 +2,15 @@ import SwiftUI
 
 struct DevicePlayListView: View {
 
-    @State private var viewDidLoad = false
+    // MARK: - Properties
 
     @EnvironmentObject private var viewModel: PlayListViewModel
 
     @State private var selectedItem: DevicePlayViewModel.ID?
+
+    @State private var viewDidLoad = false
+
+    // MARK: - UI Body
 
     var body: some View {
         asyncContentView
@@ -25,6 +29,8 @@ struct DevicePlayListView: View {
             }
     }
 
+    // MARK: - Private
+
     private func refreshPlayList() {
         Task {
             await viewModel.fetchLatestPlayList()
@@ -35,7 +41,7 @@ struct DevicePlayListView: View {
     private var asyncContentView: some View {
         switch viewModel.state {
         case .idle:
-            // TODO: Imrpove this logic to blend with view's on appear
+            // TODO: Improve this logic to blend with view's on appear
             // to make the initial transtion
             Color.clear
 
@@ -43,6 +49,8 @@ struct DevicePlayListView: View {
             ProgressView()
 
         case .failed(let error):
+            // TODO: Handle error more elegnantly via its dedciated
+            // view and custom messaging
             Text("Oops! Something went wrong in loading.")
 
         case .loaded(let items):

@@ -19,16 +19,13 @@
     "Demo Mode" : {
 
     },
-    "DEMO mode" : {
-
-    },
-    "Hee" : {
-
-    },
     "If you like to test the Demo version of this app, without connecting to internet using some mock data, toggle this switch." : {
 
     },
-    "If you wish, you can update the theme to be dark mode. Also you can update larger accessibility font sizes from system settings and see how the app adapts to it." : {
+    "If you wish, you can update the theme to be dark mode." : {
+
+    },
+    "Mock Data" : {
 
     },
     "Now Playing" : {

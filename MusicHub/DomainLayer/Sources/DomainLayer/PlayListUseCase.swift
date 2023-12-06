@@ -85,8 +85,11 @@ public class PlayListUseCase: PlayListUseCaseType {
 
 private extension AnyPublisher {
 
+    /// A private helper that transform an `Comobine` driven publigher outcome into as `Async Await` context
     func async() async throws -> Output {
+
         try await withCheckedThrowingContinuation { continuation in
+
             var cancellable: AnyCancellable?
 
             cancellable = first()
@@ -98,6 +101,7 @@ private extension AnyPublisher {
                         continuation.resume(throwing: error)
                     }
                     cancellable?.cancel()
+
                 } receiveValue: { value in
                     continuation.resume(with: .success(value))
                 }
