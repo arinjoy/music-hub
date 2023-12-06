@@ -6,10 +6,10 @@ import SwiftUI
 
 public struct RootView: View {
 
+    // MARK: - Properties
+
     @ObservedObject
     private var viewModel: PlayListViewModel
-
-    @State var currentlySelectedItemPlaying: Bool =  false
 
     // MARK: - Initializer
 
@@ -21,26 +21,30 @@ public struct RootView: View {
 
     @MainActor
     public var body: some View {
-        TabView {
-            DevicePlayListView()
-                .tabItem {
-                    Image(.tabbarIconBlockRooms)
-                    Text("Rooms")
-                }
+        NavigationView {
+            TabView {
+                DevicePlayListView()
+                    .tabItem {
+                        Image(.tabbarIconBlockRooms)
+                        Text("Rooms")
+                    }
 
-            nowPlayingView
-                .tabItem {
-                    Image(.tabbarIconNowPlaying)
-                    Text("Now Playing")
-                }
+                nowPlayingView
+                    .tabItem {
+                        Image(.tabbarIconNowPlaying)
+                        Text("Now Playing")
+                    }
 
-            SettingsView()
-                .tabItem {
-                    Image(.tabbarIconSettings)
-                    Text("Settings")
-                }
+                SettingsView()
+                    .tabItem {
+                        Image(.tabbarIconSettings)
+                        Text("Settings")
+                    }
+            }
+            .environmentObject(viewModel)
+            .navigationTitle(viewModel.isMockDataMode ? "Demo Mode" : "")
+
         }
-        .environmentObject(viewModel)
     }
 
     // MARK: - Private Views
@@ -52,11 +56,45 @@ public struct RootView: View {
                 viewModel: item,
                 isPlaying: Binding(
                     get: { item.isPlaying },
-                    set: { value in item.isPlaying = value }
+                    set: { value in
+                        item.isPlaying = value
+                    }
                 )
             )
         } else {
             EmptyView()
+        }
+    }
+
+    @ToolbarContentBuilder
+    private var toolBarContent: some ToolbarContent {
+
+        ToolbarItem(placement: .topBarLeading) {
+            EmptyView()
+        }
+
+        ToolbarItem(placement: .principal) {
+            if viewModel.isMockDataMode {
+                HStack(spacing: 10) {
+                    Text("DEMO mode") // TODO: move into viewModel
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+
+                    Image(systemName: "cloud.snow") // TODO: move into viewModel
+                        .resizable()
+                        .scaledToFit()
+                        .font(.system(size: 20, weight: .medium, design: .rounded))
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.red)
+                        .accessibilityHidden(true)
+                }
+                .accessibilityElement(children: .combine)
+                .accessibilityAddTraits(.isHeader)
+            } else {
+                Text("Hee")
+            }
         }
     }
 }

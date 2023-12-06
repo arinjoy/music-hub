@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "-3.01" : {
 
     },
@@ -14,6 +17,12 @@
 
     },
     "Demo Mode" : {
+
+    },
+    "DEMO mode" : {
+
+    },
+    "Hee" : {
 
     },
     "If you like to test the Demo version of this app, without connecting to internet using some mock data, toggle this switch." : {
