@@ -1,21 +1,27 @@
-//
-//  Created by Arinjoy Biswas on 24/11/2023.
-//
-
 import Foundation
 import DomainLayer
 
 class PlayListViewModel: ObservableObject {
 
+    enum State {
+        case idle
+        case loading
+        case loaded(items: [DevicePlayViewModel])
+        case failed(error: Error)
+    }
+
+    enum Selection {
+        case none
+        case selected(DevicePlayViewModel)
+    }
+
     // MARK: - Outputs
 
-    // A property that play is key differentiator whether demo/mock data or in real-mode
-    // is being used currently in the app
+    @Published private(set) var state = State.idle
+
+    @Published private(set) var selection = Selection.none
+
     @Published var isMockDataMode: Bool = false
-
-    @Published private(set) var playItems: [DevicePlayViewModel] = []
-
-    @Published var currentlyPlayingItem: DevicePlayViewModel?
 
     // MARK: - Dependency
 
@@ -30,13 +36,29 @@ class PlayListViewModel: ObservableObject {
     // MARK: - API methods
 
     @MainActor
-    func fetchLatestRoomsList() async {
+    func fetchLatestPlayList() async {
+
+        state = .loading
+
+        selection = .none
+
         do {
-            playItems = try await useCase
+            let playItems: [DevicePlayViewModel] = try await useCase
                 .fetchCurrentPlayList(isMockData: isMockDataMode)
                 .map { .init(model: $0) }
+
+            state = .loaded(items: playItems)
         } catch {
-            // TODO: handle later
+            state = .failed(error: error)
+        }
+    }
+
+    func applySelection(_ itemID: DevicePlayViewModel.ID?) {
+        if case .loaded(let items) = state,
+           let item = items.first(where: { $0.id == itemID }) {
+            selection = .selected(item)
+        } else {
+            selection = .none
         }
     }
 }

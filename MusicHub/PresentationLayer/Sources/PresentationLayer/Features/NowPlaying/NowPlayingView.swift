@@ -6,13 +6,19 @@ import SwiftUI
 
 struct NowPlayingView: View {
 
-    @Binding private var isPlaying: Bool
+    // MARK: - ViewModel
 
     @ObservedObject
     private(set) var viewModel: DevicePlayViewModel
 
+    // MARK: - Perivate Properties
+
+    @Binding private var isPlaying: Bool
+
     @State private var trackProgressValue: Double = 30
     @State private var musicVolumeValue: Double = 70
+
+    // MARK: - Initializer
 
     init(viewModel: DevicePlayViewModel, isPlaying: Binding<Bool>) {
         self.viewModel = viewModel

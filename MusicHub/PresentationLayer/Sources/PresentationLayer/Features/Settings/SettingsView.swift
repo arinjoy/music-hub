@@ -11,7 +11,7 @@ struct SettingsView: View {
 
     @EnvironmentObject private var viewModel: PlayListViewModel
 
-    /// A state that remembers the Demo-mode mock-date is used.
+    /// A state that remembers if the Demo-mode mock-data is used currently.
     @State private var isMockDataMode: Bool = false
 
 

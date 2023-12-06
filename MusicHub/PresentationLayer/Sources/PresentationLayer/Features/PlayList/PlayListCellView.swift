@@ -1,14 +1,8 @@
-//
-//  Created by Arinjoy Biswas on 25/11/2023.
-//
-
 import SwiftUI
 
-struct RoomCellView: View {
+struct PlayListCellView: View {
 
     @Binding private var isSelected: Bool
-
-    @State private var isCurrentlyPlaying: Bool = false
 
     @ObservedObject
     private var viewModel: DevicePlayViewModel
@@ -43,14 +37,10 @@ struct RoomCellView: View {
                             .font(.subheadline)
                     }
                 }
+                .foregroundColor(isSelected ? .white : .black)
 
                 Spacer()
             }
-        }
-        .onChange(of: viewModel.isPlaying) { value in
-            // TODO: remove debugging code
-            // This is stange that this is firing but View is not updating
-            print("\(viewModel.roomName) --> \(value)")
         }
     }
 
@@ -75,13 +65,13 @@ struct RoomCellView: View {
         )
         .resizable()
         .scaledToFit()
-        .frame(width: 20, height: 20)
+        .frame(width: 30, height: 30)
     }
 }
 
 #Preview {
     VStack {
-        RoomCellView(
+        PlayListCellView(
             viewModel: .init(
                 model: .init(
                     id: 1111,
@@ -96,7 +86,7 @@ struct RoomCellView: View {
             isSelected: .constant(true)
         )
 
-        RoomCellView(
+        PlayListCellView(
             viewModel: .init(
                 model: .init(
                     id: 2222,

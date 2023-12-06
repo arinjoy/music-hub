@@ -22,7 +22,7 @@ public struct RootView: View {
     @MainActor
     public var body: some View {
         TabView {
-            RoomsListView()
+            DevicePlayListView()
                 .tabItem {
                     Image(.tabbarIconBlockRooms)
                     Text("Rooms")
@@ -47,14 +47,14 @@ public struct RootView: View {
 
     @ViewBuilder
     private var nowPlayingView: some View {
-        if let devicePlayViewModel = viewModel.currentlyPlayingItem {
+        if case .selected(let item) = viewModel.selection {
             NowPlayingView(
-                viewModel: devicePlayViewModel,
-                isPlaying: $currentlySelectedItemPlaying
+                viewModel: item,
+                isPlaying: Binding(
+                    get: { item.isPlaying },
+                    set: { value in item.isPlaying = value }
+                )
             )
-            .onChange(of: currentlySelectedItemPlaying) { value in
-                viewModel.currentlyPlayingItem?.isPlaying = value
-            }
         } else {
             EmptyView()
         }
