@@ -10,7 +10,7 @@ public struct TestHelper {
         // swiftlint:disable:next force_try
         return try! JSONDecoder().decode(
             DeviceListResponse.self,
-            from: TestHelper.jsonData(forResource: "sample_devices_success")
+            from: TestHelper.jsonData(forResource: "test_devices_success")
         )
     }
 
