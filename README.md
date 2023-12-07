@@ -34,7 +34,7 @@ Codebase is broken down into 3 logical layers (via `Swift Packages`)
 - `DataLayer`:
     - Network fetching of raw data and JSON decoding via URL, error code mapping etc.
 - `DomainLayer`:
-    - Business logic combining data based and chain multiple API calls.
+    - Business logic combining data based and chain multiple API calls to flatten into new data structure as business logic
     - `UseSase`s live here. (aka. `Interactor` in some codebases)
 - `PresentationLayer`:
     - Domain data to SwiftUI binding logic
@@ -43,7 +43,7 @@ Codebase is broken down into 3 logical layers (via `Swift Packages`)
 
 - A mix of **`MVVM`** and **`VIPER`** design pattern is used to achieve loose coupling and unit testing via **`Dependency Injection`** patterns and mocks
 - Currently use Apple's `Combine` based `Reactive Binding`.
-- Also used **Async Await** paradigm at the middle use-case layer
+- Also used **`Async Await`** paradigm at the middle use-case business layer
 - Some TODO notes left in the code deliberately for potential improvements and SwiftLint warns us about those to trace them
 
 
@@ -59,9 +59,11 @@ The package dependencies (import logic from one to another) are shown below:
  
 Please refer from the project navigator in Xcode to see the layering.
 
-| Project Structure |
-| ------ |
-| <img src="Screenshots/project-structure.png" width="300" alt=""> |
+| Project Structure | App targets |
+| ------ | ------ |
+| <img src="Screenshots/project-structure.png" width="300" alt=""> | <img src="Screenshots/targets.png" width="300" alt=""> |
+
+ **NOTE:** For running the app, use use the main `MusicHub` target to run on a simulator. 
 
 
 ## 💻 Installation
