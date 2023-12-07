@@ -26,13 +26,15 @@ public class PlayListUseCase: PlayListUseCaseType {
 
     // MARK: - PlayListUseCaseType
 
-    public func fetchCurrentPlayList(isMockData: Bool) async throws -> [DevicePlay] {
+    public func fetchCurrentPlayList(isMockData: Bool?) async throws -> [DevicePlay] {
 
-        // Override network Service instance to point local-stubbed fake/mock service
-        if isMockData {
-            networkService = ServicesProvider.localStubbedProvider().network
-        } else {
-            networkService = ServicesProvider.defaultProvider().network
+        if let isMockData {
+            // Override network Service instance to point local-stubbed fake/mock service
+            if isMockData {
+                networkService = ServicesProvider.localStubbedProvider().network
+            } else {
+                networkService = ServicesProvider.defaultProvider().network
+            }
         }
 
         return try await networkService.load(
@@ -49,7 +51,7 @@ public class PlayListUseCase: PlayListUseCaseType {
                 .compactMap { $0 }
             }
         }
-        .delay(for: 1.0, scheduler: RunLoop.main)
+        .delay(for: 1.0, scheduler: DispatchQueue.main)
         .eraseToAnyPublisher()
         .async()
     }
